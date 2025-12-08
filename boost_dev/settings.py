@@ -42,7 +42,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 # Configure allowed hosts based on environment
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Add Heroku domains
-ALLOWED_HOSTS += ['.herokuapp.com', 'boost-dev-9ed56bf6f182.herokuapp.com']
+ALLOWED_HOSTS += ['.herokuapp.com', 'boostdev-dd7a476218a8.herokuapp.com']
 # Add any custom domain if you have it
 HEROKU_APP_DOMAIN = os.environ.get('HEROKU_APP_DOMAIN')
 if HEROKU_APP_DOMAIN:

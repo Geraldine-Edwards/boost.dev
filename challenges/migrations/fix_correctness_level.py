@@ -1,4 +1,4 @@
-from django.db import migrations, models
+from django.db import migrations, connection, models
 
 def set_default_correctness_level(apps, schema_editor):
     ChallengeSolution = apps.get_model('challenges', 'ChallengeSolution')
@@ -9,6 +9,18 @@ def set_default_correctness_level(apps, schema_editor):
             solution.correctness_level = 'incorrect'
         solution.save()
 
+def add_correctness_level_column(apps, schema_editor):
+    # Check if the column exists
+    with connection.cursor() as cursor:
+        cursor.execute("PRAGMA table_info(challenges_challengesolution);")
+        columns = [row[1] for row in cursor.fetchall()]
+        if 'correctness_level' not in columns:
+            # Add the column if it doesn't exist
+            cursor.execute(
+                "ALTER TABLE challenges_challengesolution "
+                "ADD COLUMN correctness_level TEXT DEFAULT 'correct';"
+            )
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -16,20 +28,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunSQL(
-            sql='''
-            DO $$
-            BEGIN
-                IF NOT EXISTS (SELECT 1 FROM information_schema.columns 
-                              WHERE table_name='challenges_challengesolution' 
-                              AND column_name='correctness_level') THEN
-                    ALTER TABLE challenges_challengesolution 
-                    ADD COLUMN correctness_level character varying(20) DEFAULT 'correct';
-                END IF;
-            END
-            $$;
-            ''',
-            reverse_sql='',
-        ),
+        migrations.RunPython(add_correctness_level_column),
         migrations.RunPython(set_default_correctness_level),
     ]
