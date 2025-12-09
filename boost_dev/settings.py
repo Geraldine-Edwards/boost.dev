@@ -44,6 +44,8 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Add Coolify domains
 ALLOWED_HOSTS += ['ge-boost-dev.hosting.codeyourfuture.io']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 CSRF_TRUSTED_ORIGINS = [
     'https://ge-boost-dev.hosting.codeyourfuture.io',
 ]
