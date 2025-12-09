@@ -42,7 +42,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 # Configure allowed hosts based on environment
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Add Coolify domains
-ALLOWED_HOSTS += ['geraldine-edwards-boost-dev.hosting.codeyourfuture.io']
+ALLOWED_HOSTS += ['qkkcwg0wsscwc0sswcko84k4.hosting.codeyourfuture.io']
 # Add any custom domain if you have it
 HEROKU_APP_DOMAIN = os.environ.get('HEROKU_APP_DOMAIN')
 if HEROKU_APP_DOMAIN:
