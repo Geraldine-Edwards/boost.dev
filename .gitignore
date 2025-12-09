@@ -11,16 +11,10 @@ venv
 # Ignore database files
 *.sqlite3
 
-# Ignore Django migrations
-**/migrations/*.py
-!**/migrations/__init__.py
-
 # Ignore static and media files
 staticfiles/
 media/
 
-# Ignore logs
-*.log
 
 # Ignore compiled files
 __pycache__/
