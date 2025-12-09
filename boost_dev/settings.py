@@ -42,10 +42,10 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 # Configure allowed hosts based on environment
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Add Coolify domains
-ALLOWED_HOSTS += ['qkkcwg0wsscwc0sswcko84k4.hosting.codeyourfuture.io']
+ALLOWED_HOSTS += ['ge-boost-dev.hosting.codeyourfuture.io']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://qkkcwg0wsscwc0sswcko84k4.hosting.codeyourfuture.io',
+    'https://ge-boost-dev.hosting.codeyourfuture.io',
 ]
 
 
