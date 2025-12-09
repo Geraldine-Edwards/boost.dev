@@ -102,7 +102,7 @@
         <!-- User Avatar & Dropdown -->
         <div class="relative group">
           <button class="flex items-center space-x-2 p-2 hover:bg-gray-700 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400">
-            <img src="{{ user.userprofile.avatar|default:'https://via.placeholder.com/32' }}"
+            <img src="{{ user.userprofile.avatar|default:'https://placehold.co/32' }}"
                  alt="{{ user.username }}'s Profile"
                  class="w-8 h-8 rounded-full object-cover border border-gray-600" />
             <div class="hidden lg:block text-sm text-white">{{ user.username }}</div>
@@ -166,7 +166,7 @@
             <!-- User Profile Section -->
             {% if user.is_authenticated %}
             <div class="glass-card p-4 text-center">
-              <img src="{{ user.userprofile.avatar|default:'https://via.placeholder.com/64' }}" 
+              <img src="{{ user.userprofile.avatar|default:'https://placehold.co/64' }}" 
                    alt="{{ user.username }}" 
                    class="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-purple-400" />
               <h3 class="text-white font-semibold">{{ user.username }}</h3>
