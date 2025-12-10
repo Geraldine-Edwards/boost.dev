@@ -21,10 +21,7 @@ def get_ai_feedback(win_content, username="Developer"):
     # List of model names to try, in order of preference
     # Based on the available models in the account
     model_names = [
-        "models/gemini-1.5-pro",
-        "models/gemini-1.5-flash",
-        "models/gemini-2.0-flash-lite",
-        "models/gemini-1.5-flash-8b",
+        "models/gemini-2.5-flash-lite"
     ]
     
     # Create prompt with the actual username interpolated directly

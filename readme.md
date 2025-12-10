@@ -22,7 +22,7 @@ It aims to show users that they have good skills and to help dealing with Impost
 The idea for the project came from one of the members and was consistent with the suggested projects by CI - Hack Team.<br>
 Incorporating more than one idea of those suggested.<br>
 
-🌐 **Live site**: [Boost.dev](https://boostdev-dd7a476218a8.herokuapp.com/)
+🌐 **Live site**: [Boost.dev](https://ge-boost-dev.hosting.codeyourfuture.io/)
 
 **Imposter Syndrom**: [Article about infinite learning and imposter sysndrome](https://www.linkedin.com/pulse/taming-tech-tidal-wave-surviving-infinite-scroll-learning-without-hlyoe/)
 

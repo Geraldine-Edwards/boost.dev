@@ -22,10 +22,7 @@ def get_daily_boost(username="Developer"):
     
     # List of model names to try, in order of preference
     model_names = [
-        "models/gemini-1.5-pro",
-        "models/gemini-1.5-flash",
-        "models/gemini-2.0-flash-lite", 
-        "models/gemini-1.5-flash-8b",
+        "models/gemini-2.5-flash-lite"
     ]
     
     prompt = f"""

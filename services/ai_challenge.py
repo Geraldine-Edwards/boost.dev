@@ -1,5 +1,7 @@
+
 import os
 import google.generativeai as genai
+import re
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,11 +23,8 @@ def get_challenge_feedback(solution_text, challenge, username="Developer"):
     
     # List of model names to try, in order of preference
     model_names = [
-        "models/gemini-1.5-pro",
-        "models/gemini-1.5-flash",
-        "models/gemini-2.0-flash-lite",
-        "models/gemini-1.5-flash-8b",
-    ]
+        "models/gemini-2.5-flash-lite"
+        ]
     
     # Create prompt
     prompt = f"""
@@ -83,10 +82,7 @@ def generate_new_challenge(difficulty, topic="programming", username="Developer"
     
     # List of model names to try, in order of preference
     model_names = [
-        "models/gemini-1.5-pro",
-        "models/gemini-1.5-flash",
-        "models/gemini-2.0-flash-lite",
-        "models/gemini-1.5-flash-8b",
+        "models/gemini-2.5-flash-lite"
     ]
     
     # Create prompt
@@ -131,8 +127,13 @@ def generate_new_challenge(difficulty, topic="programming", username="Developer"
             print(f"Trying to generate new challenge with model: {model_name}")
             response = model.generate_content(prompt)
             
-            # Return the generated text
-            return response.text
+            # Parse and return hints along with the full response
+            response_text = response.text
+            hints = extract_hints(response_text)
+            return {
+                "raw": response_text,
+                "hints": hints
+            }
         except Exception as e:
             print(f"Error with model {model_name}: {e}")
             last_error = e
@@ -141,3 +142,18 @@ def generate_new_challenge(difficulty, topic="programming", username="Developer"
     # If we get here, none of the models worked
     print(f"All model attempts failed. Last error: {last_error}")
     return f"Our AI assistant is taking a break. Please try generating a challenge again later."
+
+def extract_hints(ai_response):
+    """
+    Extracts HINT 1, HINT 2, and HINT 3 from the AI response text.
+    Returns a dictionary with the hints, or None if not found.
+    """
+    hints = {}
+    for i in range(1, 4):
+        pattern = rf"HINT {i}:(.*?)(?=HINT {i+1}:|$)"
+        match = re.search(pattern, ai_response, re.DOTALL | re.IGNORECASE)
+        if match:
+            hints[f"hint_{i}"] = match.group(1).strip()
+        else:
+            hints[f"hint_{i}"] = None
+    return hints
