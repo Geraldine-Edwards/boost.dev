@@ -47,6 +47,8 @@ ALLOWED_HOSTS += ['ge-boost-dev.hosting.codeyourfuture.io']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_TRUSTED_ORIGINS = [
+    http://localhost:8000,
+    http://127.0.0.1:8000,
     'https://ge-boost-dev.hosting.codeyourfuture.io',
 ]
 
