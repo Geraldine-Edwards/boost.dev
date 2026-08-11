@@ -42,14 +42,14 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 # Configure allowed hosts based on environment
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Add Coolify domains
-ALLOWED_HOSTS += ['ge-boost-dev.hosting.codeyourfuture.io']
+ALLOWED_HOSTS += ['ge-boost-dev.trainees.hosting.cyf.academy']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
-    'https://ge-boost-dev.hosting.codeyourfuture.io',
+    'https://ge-boost-dev.trainees.hosting.cyf.academy',
     ]
 
 
