@@ -1,6 +1,6 @@
 # Ignore virtual environments
 .venv/
-venv
+venv/
 
 # Ignore environment files
 .env
@@ -15,11 +15,15 @@ venv
 staticfiles/
 media/
 
-
 # Ignore compiled files
 __pycache__/
 *.pyc
 *.pyo
+
+# Ignore Python tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
 
 # Ignore IDE/editor-specific files
 .vscode/
